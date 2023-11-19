@@ -57,10 +57,6 @@ main {
     cursor: pointer;
 }
 
-.input_section > form > button > span {
-    font-weight: bold;
-}
-
 .input_section > form > .input > input {
     display: block;
     width: 100%;

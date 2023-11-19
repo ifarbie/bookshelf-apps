@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
     const inputBook = document.getElementById('inputBook');
-    const bookCompleteCheckbox = document.getElementById('inputBookIsComplete');
     const searchBookForm = document.getElementById('searchBook');
 
     const BOOKS_DATA_KEY = 'BOOKS';
@@ -22,10 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
         clearInputBookForm();
     })
 
-    bookCompleteCheckbox.addEventListener('click', function () {
-        updateCheckboxSpanLabel()
-    })
-
     function clearInputBookForm() {
         inputBook.reset();
     }
@@ -35,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const title = inputBook['inputBookTitle'].value;
         const author = inputBook['inputBookAuthor'].value;
         const year = parseInt(inputBook['inputBookYear'].value);
-        const isRead = bookCompleteCheckbox.checked;
+        const isRead = inputBook['inputBookIsComplete'].checked;
 
         const bookObject = generateBookObject(bookId, title, author, year, isRead);
         books.push(bookObject);
@@ -217,12 +212,4 @@ document.addEventListener('DOMContentLoaded', function () {
         renderBooks(filteredBooks);
     }
 
-    function updateCheckboxSpanLabel() {
-        const submitSpan = document.querySelector('#bookSubmit span')
-        if (bookCompleteCheckbox.checked) {
-            submitSpan.innerText = 'Selesai dibaca';
-        } else {
-            submitSpan.innerText = 'Belum selesai dibaca';
-        }
-    }
 })
