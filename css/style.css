@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
+
+body {
+    font-family: "Urbanist", sans-serif;
+}
+
+.fs-09rem {
+    font-size: 0.8rem;
+}
+
+.italic-placeholder::placeholder {
+    font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+    .incomplete-bookshelf,
+    .search-book {
+        margin-bottom: 1rem;
+    }
+}
