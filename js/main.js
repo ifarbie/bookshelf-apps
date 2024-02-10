@@ -206,6 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showCancelButton: true,
             cancelButtonText: "Batal",
             confirmButtonText: "Ubah",
+            cancelButtonColor: "#d33",
             confirmButtonColor: "#198754",
             preConfirm: () => {
                 return {
