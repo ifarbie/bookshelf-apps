@@ -28,12 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const bookObject = generateBookObject(bookId, title, author, year, isRead);
         books.push(bookObject);
-        // alert(`Buku ${title} telah ditambahkan!`);
-        // Swal.fire({
-        //     title: "Sukses",
-        //     text: `Berhasil menambahkan buku "${title}"`,
-        //     icon: "success"
-        // });
         Swal.fire({
             position: "top-start",
             icon: "success",
@@ -217,9 +211,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
         if (formValues) {
-            bookTarget.title = formValues.newTitle;
-            bookTarget.author = formValues.newAuthor;
-            bookTarget.year = formValues.newYear;
             Swal.fire({
                 title: "Sukses",
                 text: `Buku "${bookTarget.title}" telah diperbarui`,
@@ -229,6 +220,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 timer: 1500,
                 position: "top-start"
             });
+            bookTarget.title = formValues.newTitle;
+            bookTarget.author = formValues.newAuthor;
+            bookTarget.year = formValues.newYear;
         }
 
         renderBooks();
