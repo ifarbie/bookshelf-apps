@@ -53,23 +53,13 @@ document.addEventListener('DOMContentLoaded', function () {
     function renderBooks(filteredBooks = null) {
         clearBookShelfLists();
 
-        if (filteredBooks) {
-            for (const book of filteredBooks) {
-                const bookItem = makeBookItem(book);
-                if (!book.isComplete) {
-                    incompleteBookshelfList.append(bookItem);
-                } else {
-                    completeBookshelfList.append(bookItem);
-                }
-            }
-        } else {
-            for (const book of books) {
-                const bookItem = makeBookItem(book);
-                if (!book.isComplete) {
-                    incompleteBookshelfList.append(bookItem);
-                } else {
-                    completeBookshelfList.append(bookItem);
-                }
+        const targetBooks = filteredBooks || books;
+        for (const book of targetBooks) {
+            const bookItem = makeBookItem(book);
+            if (!book.isComplete) {
+                incompleteBookshelfList.append(bookItem);
+            } else {
+                completeBookshelfList.append(bookItem);
             }
         }
     }
@@ -296,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const serializedBooksData = localStorage.getItem(BOOKS_DATA_KEY);
         const parsedBooksData = JSON.parse(serializedBooksData);
         if (parsedBooksData != null) {
-            for (book of parsedBooksData) {
+            for (const book of parsedBooksData) {
                 books.push(book);
             }
         }
